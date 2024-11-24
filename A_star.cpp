@@ -1,31 +1,8 @@
-#include <algorithm>  // for sort
-#include <fstream>
-#include <iostream>
-#include <sstream>
-#include <string>
-#include <vector>
+//
+// Created by adelelakour on 24.11.24.
+//
 
-
-using std::cout;
-using std::ifstream;
-using std::istringstream;
-using std::sort;
-using std::string;
-using std::vector;
-using std::abs;
-
-enum class State {
-  kEmpty,
-  kObstacle,
-  kClosed,
-  kPath,
-  kStart,
-  kFinish
-};
-
-
-const int Directions[4][2]{{1, 0}, {-1, 0}, {0, 1}, {0, -1}};
-
+#include "A_star.h"
 
 
 
@@ -162,12 +139,3 @@ void PrintTheBoard(const vector<vector<State>> board) {
 }
 
 
-int main() {
-  int init[2]{0, 0};
-  int goal[2]{4, 5};
-  auto board = ReadBoardFromFile("../files/board.txt");
-  auto solution = Search(board, init, goal);
-  PrintTheBoard(solution);
-
-
-}
